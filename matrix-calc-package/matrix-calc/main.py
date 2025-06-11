@@ -8,3 +8,9 @@ def multiply_matrices(A, B):
     if not (isinstance(A, list) and isinstance(B, list)):
         raise MatrixDimensionError("Sorry, Group 5 can't allow this: Inputs must be lists.")
     
+     if not A or not B or not all(isinstance(row, list) for row in A + B):
+        raise MatrixDimensionError("Sorry, Group 5 can't allow this: Matrices must be 2D.")
+
+    # Validate dimensions: columns of A == rows of B
+    if len(A[0]) != len(B):
+        raise MatrixDimensionError("Sorry, Group 5 can't allow this: Can't multiply these matrices.")
